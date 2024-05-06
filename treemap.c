@@ -78,16 +78,14 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     {
         Pair *par = aux->pair;
         void *keyTree = par->key; 
-        
-        if(is_equal(tree , keyTree, key))
+        if(is_equal(tree , keyTree, key)) //si las key son iguales se actualiza el current y se retorna la pareja (key, data)
         {
             tree->current = aux;
             return par;
         }
-        
-        if(tree->lower_than(keyTree, key)) //si la key que busco es mayor
+        if(tree->lower_than(keyTree, key)) //si la key que busco es mayor, avanzo a la derecha
             aux = aux->right;
-        else
+        else //si la key que busco es menor avanzo a la izquierda
             aux = aux->left;
     }
     return NULL;
