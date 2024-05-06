@@ -49,9 +49,11 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
     TreeNode *aux = tree->root;
     while(aux->left != NULL && aux->right != NULL)
-    {
+    {   
         Pair *par = aux->pair;
         void *keyAux = par->key;
+        if(is_equal(tree, keyAux, key))
+            return;
         if(tree->lower_than(keyAux, key)) //si es mayor me muevo a la derecha
             aux = aux->right;
         else
