@@ -80,7 +80,10 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
         void *keyTree = par->key; 
         
         if(is_equal(tree , keyTree, key))
+        {
+            //tree->current = aux;
             return par;
+        }
         
         if(tree->lower_than(keyTree, key)) //si la key que busco es mayor
             aux = tree->root->right;
