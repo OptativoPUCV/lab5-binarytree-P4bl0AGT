@@ -47,7 +47,21 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
+    TreeNode *aux = tree->root;
+    while(aux != NULL)
+    {
+        Pair *par = aux->pair;
+        void *keyAux = par->key;
+        if(tree->lower_than(keyAux, key)) //si es mayor me muevo a la derecha
+            aux = aux->right;
+        else
+            aux = aux->left;
+    }
 
+    TreeNode *node = createTreeNode(key, value);
+    aux = node;
+
+    // aux->left != NULL && aux->right != NULL
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -79,13 +93,13 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     while(aux != NULL)
     {
         Pair *par = aux->pair;
-        void *keyTree = par->key; 
-        if(is_equal(tree , keyTree, key)) //si las key son iguales se actualiza el current y se retorna la pareja (key, data)
+        void *keyAxu = par->key; 
+        if(is_equal(tree , keyAxu, key)) //si las key son iguales se actualiza el current y se retorna la pareja (key, data)
         {
             tree->current = aux;
             return par;
         }
-        if(tree->lower_than(keyTree, key)) //si la key que busco es mayor, avanzo a la derecha
+        if(tree->lower_than(keyAxu, key)) //si la key que busco es mayor, avanzo a la derecha
             aux = aux->right;
         else //si la key que busco es menor avanzo a la izquierda
             aux = aux->left;
