@@ -49,10 +49,10 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
     
     TreeNode *node = createTreeNode(key, value);
-    if(tree->root == NULL)
+    if(tree->root == NULL) //si mi arbol no tiene elemento entonce hago lo siguiente
     {
-        tree->root = node;
-        tree->current = node;
+        tree->root = node; //mi root es igual a mi nodo creado
+        tree->current = node;//actualizo mi current
         return;
     }
     
@@ -61,25 +61,25 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     {
         Pair *par = aux->pair;
         void *keyAux = par->key;
-        if(is_equal(tree, keyAux, key))
+        if(is_equal(tree, keyAux, key))//si son iguales no hace nada
             return;
 
-        if(aux->left == NULL || aux->right == NULL)
+        if(aux->left == NULL || aux->right == NULL)//si algun lado es NULL significa que se puede insertar ahi
             break;
         
         if(tree->lower_than(keyAux, key)) //si la key que busco es mayor, avanzo a la derecha
             aux = aux->right;
-        else
+        else // si la key que busco es menor, avanzo a la izquierda
             aux = aux->left;
     }
     
-    if(aux->left == NULL)
+    if(aux->left == NULL) //si el lado izquierdo es null inserto mi elemento ahi
         aux->left = node;
-    else
+    else //si el lado derecho es null inserto mi elemento ahi
         aux->right = node;
 
-    node->parent = aux;
-    tree->current = node;
+    node->parent = aux;//acutalizao mi nodo padre
+    tree->current = node;//actualizo mi current
 
 }
 
@@ -132,6 +132,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
+    minimum(tree->root);
     return NULL;
 }
 
