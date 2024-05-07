@@ -96,6 +96,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     if(parEliminar == NULL)
         return;
     TreeNode *nodoEliminar = tree->current;
+
+    //CASO 1: EL NODO ES UNA HOJA
+    if(nodoEliminar->left == NULL && nodoEliminar->right == NULL)
+        nodoEliminar->parent = NULL;
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
@@ -105,9 +109,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
     TreeNode* node = tree->current;
     removeNode(tree, node);
 
-    //CASO 1: EL NODO ES UNA HOJA
-    if(node->left == NULL && node->right == NULL)
-        node->parent = NULL;
+    
 }
 
 
