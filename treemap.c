@@ -53,8 +53,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     
     while(aux != NULL)
     {   
-        if(aux->right == NULL || aux->left == NULL)
-            break;
+        
         
         Pair *par = aux->pair;
         void *keyAux = par->key;
