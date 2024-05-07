@@ -219,3 +219,15 @@ Tue 07 May 2024 12:21:44 AM UTC:
  tests:  13|5
 total_score: 15/70
 bfbc456
+Tue 07 May 2024 12:26:11 AM UTC: 
+ treemap.c | 27 +++++++++++++++------------
+ 1 file changed, 15 insertions(+), 12 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:60:20: error: ‘hjjo’ undeclared (first use in this function); did you mean ‘hijo’?
+   60 |             hijo = hjjo->right;
+      |                    ^~~~
+      |                    hijo
+treemap.c:60:20: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+61d8660
