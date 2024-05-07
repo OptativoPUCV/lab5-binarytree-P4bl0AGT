@@ -52,8 +52,8 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     {
         Pair *par = aux->pair;
         void *keyAux = par->key;
-        /*if(is_equal(tree, key, keyAux))
-            return;*/
+        if(is_equal(tree, key, keyAux))
+            return;
         printf("paso?");
         if(tree->lower_than(keyAux, key))
             aux = aux->right;
