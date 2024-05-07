@@ -63,6 +63,8 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
             aux = aux->right;
         else
             aux = aux->left;
+        if(aux->right == NULL || aux->left == NULL)
+            break;
         
     }
 
