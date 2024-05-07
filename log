@@ -266,3 +266,13 @@ Tue 07 May 2024 12:40:28 AM UTC:
  tests:  14|5
 total_score: 15/70
 1a2aa5e
+Tue 07 May 2024 12:42:48 AM UTC: 
+ treemap.c | 67 ++++++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 43 insertions(+), 24 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:65:39: error: ‘TreeNode’ has no member named ‘key’
+   65 |         int cmp = tree->lower_than(aux->key, key);
+      |                                       ^~
+Compilation failed
+4b08205
