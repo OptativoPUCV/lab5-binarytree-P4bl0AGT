@@ -57,7 +57,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         /*if(is_equal(tree, key, keyAux))
             return;*/
         if(tree->lower_than(keyAux, key))
-            hijo = hjjo->right;
+            hijo = hijo->right;
         else
             hijo = hijo->left;
     }
