@@ -69,13 +69,13 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         else
             aux = aux->left;
     }
-
-    printf("%i", *(int *)aux->pair->key);
     
     if(aux->left == NULL)
         aux->left = node;
     else
         aux->right = node;
+
+    tree->current = node;
 
 }
 
