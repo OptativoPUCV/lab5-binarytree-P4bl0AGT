@@ -98,6 +98,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     TreeNode *nodoEliminar = tree->current;
     TreeNode *nodoPadre = nodoEliminar->parent;
 
+    //CASO 0: EL NODO A ELIMINAR ES EL ROOT
+    if(nodoEliminar == tree->root)
+        tree->root = NULL;
+    
     //CASO 1: EL NODO SIN HIJOS
     if(nodoEliminar->left == NULL && nodoEliminar->right == NULL)
     {
