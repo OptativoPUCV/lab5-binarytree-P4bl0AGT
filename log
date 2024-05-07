@@ -334,3 +334,9 @@ treemap.c:95:11: error: unused variable ‘parEliminar’ [-Werror=unused-variab
 cc1: all warnings being treated as errors
 Compilation failed
 b5a64b5
+Tue 07 May 2024 01:42:37 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|3
+total_score: 30/70
+387df90

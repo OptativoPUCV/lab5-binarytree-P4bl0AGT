@@ -92,7 +92,7 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    Pair *parEliminar = searchTreeMap(tree, node->pair->key);
+    //Pair *parEliminar = searchTreeMap(tree, node->pair->key);
     /*if(parEliminar == NULL)
         return;*/
     TreeNode *nodoEliminar = tree->current;
