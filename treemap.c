@@ -47,56 +47,39 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
-    // Crear un nuevo nodo
-    TreeNode * newNode = createTreeNode(key, value);
-
-    // Si el árbol está vacío, insertar el nuevo nodo en la raíz
-    if (tree->root == NULL) {
-        tree->root = newNode;
-        tree->current = newNode;
+    
+    TreeNode *node = createTreeNode(key, value);
+    if(tree->root == NULL)
+    {
+        tree->root = node;
+        tree->current = node;
         return;
     }
+    
+    TreeNode *aux = tree->root;
+    while(1)
+    {
+        Pair *par = aux->pair;
+        void *keyAux = par->key;
+        if(is_equal(tree, keyAux, key))
+            return;
 
-    // Iniciar la búsqueda desde la raíz
-    TreeNode * aux = tree->root;
-
-    while (1) {
-        // Comparar la clave del nuevo nodo con la clave del nodo actual
-        int cmp = tree->lower_than(aux->key, key);
-
-        // Si la clave ya existe en el árbol, retornar sin hacer nada
-        if (cmp == 0) return;
-
-        // Si la clave del nuevo nodo es menor que la clave del nodo actual
-        if (cmp > 0) {
-            // Si no hay ningún nodo a la izquierda, insertar el nuevo nodo allí
-            if (aux->left == NULL) {
-                aux->left = newNode;
-                newNode->parent = aux;
-                break;
-            }
-            // Si hay un nodo a la izquierda, continuar la búsqueda por ese lado
-            else {
-                aux = aux->left;
-            }
-        }
-        // Si la clave del nuevo nodo es mayor que la clave del nodo actual
-        else {
-            // Si no hay ningún nodo a la derecha, insertar el nuevo nodo allí
-            if (aux->right == NULL) {
-                aux->right = newNode;
-                newNode->parent = aux;
-                break;
-            }
-            // Si hay un nodo a la derecha, continuar la búsqueda por ese lado
-            else {
-                aux = aux->right;
-            }
-        }
+        if(aux->left == NULL || aux->right == NULL)
+            break;
+        
+        if(tree->lower_than(keyAux, key)) //si la key que busco es mayor, avanzo a la derecha
+            aux = aux->right;
+        else
+            aux = aux->left;
     }
+    
+    if(aux->left == NULL)
+        aux->left = node;
+    else
+        aux->right = node;
 
-    // Hacer que el current apunte al nuevo nodo
-    tree->current = newNode;
+    tree->current = node;
+
 }
 
 TreeNode * minimum(TreeNode * x){
