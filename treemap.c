@@ -51,7 +51,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     while(aux->left != NULL || aux->right != NULL)
     {
         Pair *par = aux->pair;
-        void *keyTemp = par->key;
+        void *keyAux = par->key;
         if(is_equal(tree, key, keyTemp))
             return;
 
