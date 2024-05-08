@@ -133,10 +133,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         nodoEliminar = auxiliar;
         removeNode(tree, auxiliar);
         
-        /*if(auxiliar->parent->left == auxiliar)
+        if(auxiliar->parent->left == auxiliar)
             auxiliar->parent->left = NULL;
         else
-            auxiliar->parent->right = NULL;*/
+            auxiliar->parent->right = NULL;
     }
     
     
