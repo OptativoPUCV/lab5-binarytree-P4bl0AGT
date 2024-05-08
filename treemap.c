@@ -130,13 +130,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     else //REVISAR
     {
         TreeNode *auxiliar = minimum(nodoEliminar->right);
-        
         removeNode(tree, auxiliar);
         nodoEliminar->pair = auxiliar->pair;
-        /*if(auxiliar->parent->left == auxiliar)
-            auxiliar->parent->left = NULL;
-        else
-            auxiliar->parent->right = NULL;*/
         
     }
     
