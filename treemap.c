@@ -189,10 +189,14 @@ Pair * nextTreeMap(TreeMap * tree) {
     }
     else
     {
-        while(aux->parent != NULL && aux->parent->right == aux)
+        while(1)
+        {
+            Pair *auxPar = aux->pair;
+            Pair *padrePar = aux->parent->pair;
+            if(tree->lower_than(padrePar->key, auxPar->key))
+                return padrePar;
             aux = aux->parent;
-        if(aux->parent != NULL)
-            return aux->parent->pair;
+        }
     }
     return NULL;
 }
