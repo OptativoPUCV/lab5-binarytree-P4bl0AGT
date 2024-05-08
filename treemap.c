@@ -177,6 +177,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
 
 Pair * firstTreeMap(TreeMap * tree) {
     TreeNode *nodo = minimum(tree->root);
+    tree->current = nodo;
     return nodo->pair;
 }
 
@@ -184,7 +185,6 @@ Pair * nextTreeMap(TreeMap * tree) {
     TreeNode *aux = tree->current;
     if(aux->right != NULL)
     {
-        printf("HOLA");
         TreeNode *minimo = minimum(aux->right);
         return minimo->pair;
     }
