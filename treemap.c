@@ -191,7 +191,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     }
     else
     {
-        while(aux->parent != NULL)
+        while(1)
         {
             Pair *auxPar = aux->pair;
             Pair *padrePar = aux->parent->pair;
