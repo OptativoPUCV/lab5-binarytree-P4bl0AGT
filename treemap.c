@@ -131,7 +131,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     {
         TreeNode *auxiliar = minimum(nodoEliminar->right);
         nodoEliminar->pair = auxiliar->pair;
-        removeNode(tree, auxiliar);
+        //removeNode(tree, auxiliar);
         
         if(auxiliar->parent->left == auxiliar)
             auxiliar->parent->left = NULL;
