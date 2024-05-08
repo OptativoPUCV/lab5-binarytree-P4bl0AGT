@@ -197,7 +197,7 @@ Pair * nextTreeMap(TreeMap * tree) {
             Pair *padrePar = aux->parent->pair;
             if(tree->lower_than(auxPar->key, padrePar->key) == 1)
             {
-                tree->current = padrePar;
+                tree->current = aux->parent;
                 return padrePar;
             }
             aux = aux->parent;
