@@ -97,6 +97,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         return;
     TreeNode *nodoEliminar = tree->current;
     TreeNode *nodoPadre = nodoEliminar->parent;
+    TreeNode *nodoHijo = NULL;
 
     //CASO 0: EL NODO A ELIMINAR ES EL ROOT
     if(nodoEliminar == tree->root)
@@ -113,16 +114,26 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
     //CASO 2: EL NODO TIENE UN HIJO
     else if(nodoEliminar->left == NULL || nodoEliminar->right == NULL)
-        return;
+    {
+        if(nodoEliminar->left == NULL)
+            nodoHijo = nodoEliminar->left;  
+        else
+            nodoHijo = nodoEliminar->right;
+
+        if(nodoPadre->left == nodoEliminar)
+            nodoPadre->left = nodoHijo;
+        else
+            nodoPadre->right = nodoHijo;
+    }
     //CASO 3: EL NODO TIENE DOS HIJOS
-    else
+    /*else
     {
         TreeNode *minimo = minimum(nodoEliminar);
         TreeNode *minimoAux = minimo;
         removeNode(tree, minimo->pair->key);
         nodoEliminar = minimoAux;
         
-    }
+    }*/
     
     
 }
