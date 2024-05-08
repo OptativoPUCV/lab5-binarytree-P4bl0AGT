@@ -130,9 +130,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
    else
     {
         TreeNode *auxiliar = minimum(nodoEliminar);
-        Pair *parAux = auxiliar->pair;
         removeNode(tree, auxiliar);
-        nodoEliminar->pair = parAux;
+        nodoEliminar = auxiliar;
     }
     
     
