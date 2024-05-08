@@ -127,7 +127,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         nodoHijo->parent = nodoPadre;
     }
     //CASO 3: EL NODO TIENE DOS HIJOS
-    else //REVISAR
+    else
     {
         TreeNode *auxiliar = minimum(nodoEliminar->right);
         removeNode(tree, auxiliar);
