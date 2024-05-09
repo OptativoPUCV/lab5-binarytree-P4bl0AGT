@@ -63,15 +63,14 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         void *keyAux = par->key;
         if(is_equal(tree, keyAux, key))//si son iguales no hace nada
             return;
+            
+        if(aux->left == NULL || aux->right == NULL)//si algun lado es NULL significa que se puede insertar ahi
+            break;
 
         if(tree->lower_than(keyAux, key)) //si la key que busco es mayor, avanzo a la derecha
             aux = aux->right;
         else // si la key que busco es menor, avanzo a la izquierda
             aux = aux->left;
-            
-        if(aux->left == NULL || aux->right == NULL)//si algun lado es NULL significa que se puede insertar ahi
-            break;
-        
         
     }
     
