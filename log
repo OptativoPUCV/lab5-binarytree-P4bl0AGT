@@ -696,3 +696,20 @@ treemap.c:190:12: error: ‘upperBound’ may be used uninitialized in this func
 cc1: all warnings being treated as errors
 Compilation failed
 316e3b6
+Sat 11 May 2024 08:54:29 PM UTC: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:190:5: error: ‘return’ with no value, in function returning non-void [-Werror=return-type]
+  190 |     return  ;
+      |     ^~~~~~
+treemap.c:175:8: note: declared here
+  175 | Pair * upperBound(TreeMap * tree, void* key) {
+      |        ^~~~~~~~~~
+treemap.c:177:11: error: variable ‘upperBound’ set but not used [-Werror=unused-but-set-variable]
+  177 |     Pair *upperBound = NULL;
+      |           ^~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4456d75
